@@ -18,23 +18,22 @@ const VideoPlayer = () => {
     };
 
     return (
-        <div className="">
-            <div className="w-[854px] h-[480px]">
-                {ReactPlayer.canPlay(videoUrl) ? (
-                    <ReactPlayer
-                        url={videoUrl}
-                        controls={true}
-                        width={"100%"}
-                        height={"100%"}
-                        volume={0.3}
-                        onProgress={(time) => {
-                            handleVideoProgress(time);
-                        }}
-                    />
-                ) : (
-                    <VideoUnvailable />
-                )}
-            </div>
+        <div className="relative basis-3/4 w-full h-full">
+            {ReactPlayer.canPlay(videoUrl) ? (
+                <ReactPlayer
+                    url={videoUrl}
+                    controls={true}
+                    width={"100%"}
+                    height={"100%"}
+                    style={{ position: "absolute", left: 0, top: 0 }}
+                    volume={0.3}
+                    onProgress={(time) => {
+                        handleVideoProgress(time);
+                    }}
+                />
+            ) : (
+                <VideoUnvailable />
+            )}
         </div>
     );
 };
