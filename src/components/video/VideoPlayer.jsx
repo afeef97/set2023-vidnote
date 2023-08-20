@@ -18,8 +18,8 @@ const VideoPlayer = () => {
     };
 
     return (
-        <div className="w-screen flex justify-center items-center pt-36 pb-8 px-16 bg-black">
-            <div className="w-[960px] h-[540px]">
+        <div className="">
+            <div className="w-[854px] h-[480px]">
                 {ReactPlayer.canPlay(videoUrl) ? (
                     <ReactPlayer
                         url={videoUrl}
