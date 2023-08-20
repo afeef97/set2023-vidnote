@@ -26,6 +26,7 @@ const VideoPlayer = () => {
                         controls={true}
                         width={"100%"}
                         height={"100%"}
+                        volume={0.3}
                         onProgress={(time) => {
                             handleVideoProgress(time);
                         }}
