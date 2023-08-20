@@ -3,7 +3,7 @@ import { videoUrlAtom } from "../../atoms";
 import { useAtom } from "jotai";
 
 const IconedInput = ({ type = "text", placeholder, identifier, children }) => {
-    const [videoPlayer, setVideoUrl] = useAtom(videoUrlAtom);
+    const [videoUrl, setVideoUrl] = useAtom(videoUrlAtom);
 
     const handleChange = (e) => {
         setVideoUrl(e.target.value);
@@ -17,6 +17,7 @@ const IconedInput = ({ type = "text", placeholder, identifier, children }) => {
                 name={identifier}
                 id={identifier}
                 placeholder={placeholder}
+                value={videoUrl}
                 onChange={(e) => {
                     handleChange(e);
                 }}
