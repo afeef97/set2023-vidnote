@@ -1,7 +1,11 @@
 import { useAtom } from "jotai";
 import React from "react";
 import ReactPlayer from "react-player";
-import { videoTimeAtom, formattedVideoTimeAtom, videoUrlAtom } from "../atoms";
+import {
+    videoTimeAtom,
+    formattedVideoTimeAtom,
+    videoUrlAtom,
+} from "../../atoms";
 import VideoUnvailable from "./VideoUnvailable";
 
 const VideoPlayer = () => {
