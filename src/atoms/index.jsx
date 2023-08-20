@@ -12,3 +12,5 @@ export const formattedVideoTimeAtom = atom((get) => {
         .slice(11, 19);
     return formattedTime;
 });
+
+export const notesListAtom = atomWithStorage("notesList", []);
