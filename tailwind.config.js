@@ -4,11 +4,10 @@ export default {
     theme: {
         extend: {
             colors: {
-                mainBG: "#000814",
-                secondaryBG: "#E8E9ED",
-                mainAccent: "#FFD60A",
-                secondaryAccent: "#FFC300",
-                tertiaryAccent: "#003566",
+                mainBG: "#0F1108",
+                secondaryBG: "#F4FAFF",
+                mainAccent: "#FAF33E",
+                secondaryAccent: "#003566",
                 mainText: "#FFFFFF",
             },
         },

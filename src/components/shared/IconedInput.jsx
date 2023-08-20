@@ -10,7 +10,7 @@ const IconedInput = ({ type = "text", placeholder, identifier, children }) => {
     };
 
     return (
-        <div className="bg-white text-tertiaryAccent p-2 flex gap-2 rounded-xl">
+        <div className="bg-white text-black p-2 flex gap-2 rounded-xl">
             {children}
             <input
                 type={type}
