@@ -5,12 +5,14 @@ import {
     videoTimeAtom,
     formattedVideoTimeAtom,
     videoUrlAtom,
+    videoPlayAtom,
 } from "../../atoms";
 import VideoUnvailable from "./VideoUnvailable";
 
 const VideoPlayer = () => {
     const [videoUrl, setVideoUrl] = useAtom(videoUrlAtom);
     const [videoTime, setVideoTime] = useAtom(videoTimeAtom);
+    const [videoPlay, setVideoPlay] = useAtom(videoPlayAtom);
     const formattedVideoTime = useAtom(formattedVideoTimeAtom);
 
     const handleVideoProgress = (t) => {
@@ -21,6 +23,7 @@ const VideoPlayer = () => {
         <div className="relative basis-3/4 w-full h-full">
             {ReactPlayer.canPlay(videoUrl) ? (
                 <ReactPlayer
+                    playing={videoPlay}
                     url={videoUrl}
                     controls={true}
                     width={"100%"}

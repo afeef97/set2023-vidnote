@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Header from "../components/Header";
 import VideoPlayer from "../components/video/VideoPlayer";
 import NotesInputPanel from "../components/notes/NotesInputPanel";
@@ -14,7 +14,7 @@ const Home = () => {
                     <VideoPlayer />
                     <NotesInputPanel />
                 </div>
-                <div className="w-5/6 max-w-[1328px] basis-1/2">
+                <div className="relative w-5/6 max-w-[1328px] basis-1/2">
                     <NotesPanel />
                 </div>
             </div>

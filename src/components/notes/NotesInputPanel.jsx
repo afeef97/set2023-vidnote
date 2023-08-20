@@ -1,19 +1,45 @@
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { videoTimeAtom } from "../../atoms";
+import {
+    formattedVideoTimeAtom,
+    notesListAtom,
+    videoTimeAtom,
+    videoPlayAtom,
+} from "../../atoms";
 import Button from "../shared/Button";
 
 const NotesInputPanel = () => {
-    const [videoTime] = useAtom(videoTimeAtom);
-    const { register, handleSubmit, watch } = useForm();
+    const [videoTime, setVideoTime] = useAtom(videoTimeAtom);
+    const [formattedVideoTime] = useAtom(formattedVideoTimeAtom);
+    const [notesList, setNotesList] = useAtom(notesListAtom);
+    const [videoPlay, setVideoPlay] = useAtom(videoPlayAtom);
+    const { register, handleSubmit, reset, watch } = useForm();
 
     const onSubmit = (data, event) => {
         event.preventDefault();
         if (data.notes) {
-            console.log(data);
+            setNotesList([
+                ...notesList,
+                {
+                    timestamp: formattedVideoTime,
+                    notes: data.notes,
+                },
+            ]);
         }
     };
+
+    useEffect(() => {
+        if (watch("notes") !== "") {
+            setVideoPlay(false);
+        } else setVideoPlay(true);
+    }, [watch("notes")]);
+
+    useEffect(() => {
+        reset({
+            notes: "",
+        });
+    }, [notesList]);
 
     return (
         <form
