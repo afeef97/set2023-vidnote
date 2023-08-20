@@ -6,11 +6,13 @@ import {
     notesListAtom,
     videoTimeAtom,
     videoPlayAtom,
+    videoUrlAtom,
 } from "../../atoms";
 import Button from "../shared/Button";
 
 const NotesInputPanel = () => {
     const [videoTime, setVideoTime] = useAtom(videoTimeAtom);
+    const [videoUrl, setVideoUrl] = useAtom(videoUrlAtom);
     const [formattedVideoTime] = useAtom(formattedVideoTimeAtom);
     const [notesList, setNotesList] = useAtom(notesListAtom);
     const [videoPlay, setVideoPlay] = useAtom(videoPlayAtom);
@@ -18,7 +20,7 @@ const NotesInputPanel = () => {
 
     const onSubmit = (data, event) => {
         event.preventDefault();
-        if (data.notes) {
+        if (data.notes && videoUrl) {
             setNotesList([
                 ...notesList,
                 {

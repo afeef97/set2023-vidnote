@@ -3,10 +3,12 @@ import NotesList from "./NotesList";
 import { Download } from "lucide-react";
 import { CSVLink } from "react-csv";
 import { useAtom } from "jotai";
-import { notesListAtom } from "../../atoms";
+import { notesListAtom, videoUrlAtom } from "../../atoms";
 
 const NotesPanel = () => {
-    const [notesList] = useAtom(notesListAtom);
+    const [notesList, setNotesList] = useAtom(notesListAtom);
+    const [videoUrl, setVideoUrl] = useAtom(videoUrlAtom);
+    const tempNotesList = [{ videoUrl: videoUrl }, ...notesList];
 
     return (
         <div
@@ -18,7 +20,7 @@ const NotesPanel = () => {
                     <CSVLink
                         className="hover:cursor-pointer"
                         filename="video-notes.csv"
-                        data={notesList}>
+                        data={tempNotesList}>
                         <Download className="text-secondaryAccent" />
                     </CSVLink>
                 </div>
